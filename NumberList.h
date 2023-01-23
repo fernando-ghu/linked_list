@@ -19,8 +19,7 @@ class NumberList
     ~NumberList();
 
     void appendNode(double);
-
-
-
+    void insertNode(double);
+    void displayList() const;
 };
 #endif

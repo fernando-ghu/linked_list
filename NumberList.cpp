@@ -15,7 +15,6 @@ NumberList::~NumberList()
     delete nodePtr;
     nodePtr = nextNode;
   }
-  
 }
 
 void NumberList::appendNode(double num)
@@ -39,3 +38,56 @@ void NumberList::appendNode(double num)
     nodePtr->next = newNode;
   }
 }
+
+void NumberList::insertNode(double num)
+{
+  ListNode* nodePtr;
+  ListNode* prevNode = nullptr;
+  ListNode* newNode;
+
+  /* Allocation of a new node */
+  newNode = new ListNode;
+  newNode->value = num;
+
+  /* Inserting a node into an empty list */
+  if(!head)
+  {
+    head = newNode;
+    newNode->next = nullptr;
+  }
+  else
+  {
+    nodePtr = head;
+    prevNode = nullptr;
+  
+    while(nodePtr != nullptr && nodePtr->value < num)
+    {
+      prevNode = nodePtr;
+      nodePtr = nodePtr->next;
+    }
+    if(prevNode == nullptr)
+    {
+      head = newNode;
+      newNode->next = nodePtr;
+    }
+    else
+    {
+      prevNode = newNode;
+      newNode->next = nodePtr;
+    }
+  }
+}
+
+void NumberList::displayList() const
+{
+  ListNode* nodePtr;
+
+  nodePtr = head;
+
+  while(nodePtr)
+  {
+    cout << nodePtr->value << endl;
+    nodePtr = nodePtr->next;
+  }
+}
+

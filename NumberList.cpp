@@ -91,3 +91,40 @@ void NumberList::displayList() const
   }
 }
 
+void NumberList::deleteNode(double num)
+{
+	ListNode* nodePtr;
+	ListNode* previousNode;
+
+	if(!head)
+		return;
+
+	if(head->value == num)
+	{
+		nodePtr = head->next;
+		delete head;
+		head = nodePtr;
+	}
+	else
+	{
+		nodePtr = head;
+		while(nodePtr != nullptr && nodePtr->value != num)
+		{
+			previousNode = nodePtr;
+			nodePtr = nodePtr->next;
+		}
+		if(nodePtr)
+		{
+			previousNode->next = nodePtr->next;
+			delete nodePtr;
+		}
+	}
+}
+
+int NumberList::countNodes(ListNode* nodePtr) const
+{
+	if (nodePtr != nullptr)
+		return 1 + countNodes(nodePtr->next);
+	else
+		return 0;
+}

@@ -12,6 +12,8 @@ class NumberList
 
     ListNode* head;
 
+		int countNodes(ListNode*) const;
+
   public:
     NumberList()
       { head=nullptr; }
@@ -21,5 +23,8 @@ class NumberList
     void appendNode(double);
     void insertNode(double);
     void displayList() const;
+		void deleteNode(double);
+		int numNodes() const
+			{ return countNodes(head); }
 };
 #endif

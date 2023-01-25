@@ -11,8 +11,13 @@ int main()
  cout << "\n";
  list.insertNode(0.2);
  list.displayList();
+ cout << "\n";
+ list.deleteNode(1.3);
+ list.displayList();
 
-
-
-  return 0;
+ cout << "\nNumber of nodes in"
+	 << " the list\n";
+ cout << list.numNodes();
+ cout << "\n";
+ return 0;
 }

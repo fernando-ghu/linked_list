@@ -13,6 +13,7 @@ class NumberList
     ListNode* head;
 
 		int countNodes(ListNode*) const;
+		void showReverse(ListNode*) const;
 
   public:
     NumberList()
@@ -26,5 +27,7 @@ class NumberList
 		void deleteNode(double);
 		int numNodes() const
 			{ return countNodes(head); }
+		void displayBackwards() const
+			{ showReverse(head); }
 };
 #endif

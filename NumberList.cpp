@@ -128,3 +128,12 @@ int NumberList::countNodes(ListNode* nodePtr) const
 	else
 		return 0;
 }
+
+void NumberList::showReverse(ListNode* nodePtr) const
+{
+	if(nodePtr)
+	{
+		showReverse(nodePtr->next);
+		cout << nodePtr->value << " ";
+	}
+}
